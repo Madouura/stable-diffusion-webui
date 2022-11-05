@@ -33,9 +33,9 @@
 
         postShellHook = ''
           export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.glib.out}/lib:${pkgs.zlib}/lib:${pkgs.libGL}/lib:$LD_LIBRARY_PATH"
-          export MIOPEN_EMBED_DB=gfx1030_40
           export TORCH_COMMAND="pip install torch torchvision --extra-index-url https://download.pytorch.org/whl/rocm5.1.1"
           pip install --upgrade pip wheel
+          $TORCH_COMMAND
           git clone https://github.com/facebookresearch/xformers.git repositories/xformers > /dev/null 2>&1
           cd repositories/xformers
           git pull
@@ -43,7 +43,7 @@
           pip install -r requirements.txt
           pip install -e .
           cd ../..
-          python launch.py --xformers
+          python launch.py --xformers --no-half --precision full
           exit
         '';
       };
