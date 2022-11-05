@@ -43,7 +43,7 @@
           pip install -r requirements.txt
           pip install -e .
           cd ../..
-          python launch.py --xformers --no-half --precision full
+          python launch.py --xformers
           exit
         '';
       };
