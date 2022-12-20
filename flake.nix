@@ -33,7 +33,7 @@
 
         postShellHook = ''
           export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib:${pkgs.glib.out}/lib:${pkgs.zlib}/lib:${pkgs.libGL}/lib:$LD_LIBRARY_PATH"
-          export TORCH_COMMAND="pip install torch torchvision --extra-index-url https://download.pytorch.org/whl/rocm5.1.1"
+          export TORCH_COMMAND="pip install torch torchvision --extra-index-url https://download.pytorch.org/whl/rocm5.2"
           pip install --upgrade pip wheel
           $TORCH_COMMAND
           git clone https://github.com/facebookresearch/xformers.git repositories/xformers > /dev/null 2>&1
