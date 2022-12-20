@@ -40,6 +40,8 @@
           cd repositories/xformers
           git pull
           git submodule update --init --recursive
+          pip install cutlass
+          pip install triton
           pip install -r requirements.txt
           pip install -e .
           cd ../..
